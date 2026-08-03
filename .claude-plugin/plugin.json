@@ -1,0 +1,9 @@
+{
+  "name": "auditagent",
+  "version": "0.1.0",
+  "description": "Smart contract security scanning plugin utilizing AuditAgent's MCP",
+  "author": { "name": "Nethermind" },
+  "homepage": "https://auditagent.nethermind.io",
+  "keywords": ["security", "smart contracts", "solidity", "audit", "mcp"],
+  "defaultEnabled": true
+}
