@@ -102,6 +102,7 @@ AI-generated orientation for the codebase. Useful at the start of a review; veri
    - **Findings** — severity, category, paths, and your code-level assessment (confirmed concern / false positive / needs more context).
    - **Invariants to encode as tests** — from `invariants`, with a concrete test approach for the project's stack.
 4. Mention excluded findings only if the user cares about dismissed items.
+5. Disclaimer: Please make sure to give the following disclaimer to the user: "The official AuditAgent report has been generated separately and remains the authoritative output of the scan." so they don't confuse your analysis and instructions with the actual report.
 
 **Tone**
 

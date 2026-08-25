@@ -1,7 +1,7 @@
 {
   "name": "auditagent",
   "version": "0.1.0",
-  "description": "Smart contract security scanning plugin utilizing AuditAgent's MCP",
+  "description": "Scan your smart contracts for potential security issues directly through Claude Code. This plugin integrates AuditAgent, Nethermind's AI-powered automated security analysis tool, into your Claude Code development workflow. AuditAgent helps identify potential vulnerabilities and design risks before code ships.\nKey features include automated security scans that surface vulnerabilities and design risks across your codebase, detailed findings with the context behind why each one matters. The plugin handles authentication and scan setup automatically.\nHow to use: Ask Claude Code to scan your project with AuditAgent or review existing findings. Claude Code will read selected files in your project and transmit them to AuditAgent for analysis. You are responsible for configuring which files and folders Claude Code may access before initiating a scan.\nAuditAgent provides automated analysis and is not a substitute for a comprehensive professional security audit. By using the plugin and AuditAgent, you agree to the AuditAgent Terms of Use and Privacy Policy.",
   "author": { "name": "Nethermind" },
   "homepage": "https://auditagent.nethermind.io",
   "keywords": ["security", "smart contracts", "solidity", "audit", "mcp"],
