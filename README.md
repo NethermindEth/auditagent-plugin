@@ -37,3 +37,4 @@ This plugin requires you to be authenticated to AuditAgent. Claude code should a
 | Skill | Purpose |
 |-------|---------|
 | `aa-results-analysis` | Contains detailed instructions on how to utilize the scan results |
+| `aa-annotate` | Inserts `// @auditagent>` comments into the source from verified scan findings |
