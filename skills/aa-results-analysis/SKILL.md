@@ -1,6 +1,6 @@
 ---
 name: aa-results-analysis
-description: Contains detailed instructions on how to utilize the scan results from AuditAgent's security scan of smart contracts
+description: Review, explain, and act on a finished AuditAgent smart contract scan's results (findings, invariants, audit_score). Use when the user asks to go through, triage, or fix findings from AuditAgent's `scan_results`.
 ---
 
 # AuditAgent scan results
@@ -17,6 +17,8 @@ Once the results from a scan are available and you want to:
 - Explain how to apply fixes
 - Turn invariants into tests
 - Separate what AuditAgent reported from what the code actually does
+
+Use it only when the user asks. While a scan is unfinished, `scan_results` returns just `scan_status`, `message`, and `progress`; there is nothing to analyze yet.
 
 ### Results structure
 
@@ -46,7 +48,7 @@ The result structure is as follows:
 The findings are the issues that were detected in the codebase. They are structured as follows (they include more fields than the ones listed here, but you can ignore those):
 
 - `issue` — short title
-- `description` — detailed explanation of the issue
+- `description` — Markdown explanation of the issue, with supporting source excerpts and no recommendations
 - `severity` — The severity of the issue: High | Medium | Low | Info | Best Practices
 - `contracts` — project-relative file paths (not bare contract names) the issue affects
 - `category` — vulnerability class: reentrancy, access_control, integer_overflow_underflow, denial_of_service, unchecked_call, front_running, config_dependent, business_logic, precision_loss, centralization_risk, other
@@ -84,8 +86,8 @@ An **invariant** is a condition that should hold they are generated from the cod
 ## audit_score
 
 - Range: **0–100** (higher is better). May be null (e.g. no code-line metrics).
-- Weighted High / Medium / Low findings (weights 10 / 4 / 1), adjusted by detector confidence and issue density vs code size, minus a small comment-ratio quality penalty. Info and Best Practices have weight **0**.
-- Scoring does not filter `excluded: true`, and excluding later does not recalculate the stored score.
+- The most severe open finding picks a band: any High gives 10–69, Medium at worst gives 70–89, Low at worst gives 90–99. More findings push the score lower inside that band. 100 means no open High / Medium / Low. Info and Best Practices never count.
+- Findings with `excluded: true` do not count, and excluding or restoring one recalculates the score.
 - Experimental — false positives can move it. Not a ship/no-ship grade and not a substitute for human review.
 
 ## summary
@@ -114,4 +116,4 @@ AI-generated orientation for the codebase. Useful at the start of a review; veri
 
 - "Open `contracts/Vault.sol` at the `withdraw` path in finding #3; check external call order against the reported reentrancy pattern."
 - "Add an invariant test from this `condition`: total supply equals sum of balances after any `deposit`/`withdraw` sequence."
-- "After patching High findings, start a new scan and compare — the previous `scan_id` does not update in place."
+- "After patching High findings, start a new scan and compare — the previous `scan_id` does not update in place. A new scan needs a new price quote and your approval."

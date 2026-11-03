@@ -15,10 +15,7 @@ Do not run this while a scan is unfinished. Do not run it just because `scan_res
 
 ## Get the results
 
-Call `scan_results`.
-
-- Logged in: `scan_results(scan_id)`.
-- Logged out: `scan_results(scan_id, result_token)`.
+Call `scan_results(scan_id, result_token)` with the token the scan's launch returned. A connection logged in to an account may omit the token for its own workspace's scans. A scan run without an account always needs it.
 
 Skip findings with `excluded: true` unless the user asks for dismissed items. Work High, then Medium, then Low. Add Info and Best Practices only when the user asks for every finding.
 
