@@ -28,7 +28,7 @@ The result structure is as follows:
 |-------|-----|
 | `scan_id` | UUID for this scan |
 | `scan_number` | Human-readable scan index in the workspace |
-| `scan_type` | Scan quality display name (e.g. `"Developer Scan"`) |
+| `scan_type` | Scan quality display name (MCP scans are `"Auditor Scan"`) |
 | `summary` | AI-generated summary of the project |
 | `total_vulnerabilities` | The total number of vulnerabilities found in the scan |
 | `total_lines_of_code` | The total number of lines of code analyzed |
